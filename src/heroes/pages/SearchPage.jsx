@@ -8,19 +8,19 @@ export const SearchPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   // Usamos la libreria "query-string" para que esta misma parsee o extraiga los valores de la URL que se mandan como query params o parametros despues del signo de pregunta, por ejemplo, si mi URL tiene este query param "?query=superman" entonces la libreria parseara esa cadena de texto convirtiendola en un objeto con propiedades, en este caso me devolvera este objeto {query: "superman"}
-  const { q = '' } = queryString.parse(location.search);
-  const heroes = getHeroesByName(q);
+  const { queryValue = '' } = queryString.parse(location.search);
+  const heroes = getHeroesByName(queryValue);
 
-  const showSearch = q.length === 0; // Esta condicion ya regresa un valor booleano
-  const showError = q.length > 0 && heroes.length === 0;
+  const showSearch = queryValue.length === 0; // Esta condicion ya regresa un valor booleano
+  const showError = queryValue.length > 0 && heroes.length === 0;
 
   const { searchText, onInputChange } = useForm({
-    searchText: q,
+    searchText: queryValue,
   });
 
   const onSearchSubmit = (event) => {
     event.preventDefault();
-    navigate(`?q=${searchText}`);
+    navigate(`?queryValue=${searchText}`);
   };
 
   return (
@@ -70,7 +70,7 @@ export const SearchPage = () => {
               showError ? '' : 'd-none'
             }`}
           >
-            No hero with <b>{q}</b>
+            No hero with <b>{queryValue}</b>
           </div>
           {heroes.map((hero) => (
             <HeroCard key={hero.id} {...hero} />
