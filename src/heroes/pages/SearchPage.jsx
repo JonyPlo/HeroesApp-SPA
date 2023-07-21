@@ -20,6 +20,7 @@ export const SearchPage = () => {
 
   const onSearchSubmit = (event) => {
     event.preventDefault();
+    // Lo que hacemos dentro de navigate es asignar al final de la url actual la query "?queryValue=${searchText}", y como solo estamos asignando una query y no una nueva ruta como por ejemplo "/marvel" la ruta de la pagina se mantiene, asi que no nos lleva a otra pagina pero si se actualiza la pagina actual asignandole tambien la query que pusimos en el navigate
     navigate(`?queryValue=${searchText}`);
   };
 

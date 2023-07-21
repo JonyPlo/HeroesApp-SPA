@@ -7,7 +7,7 @@ export const LoginPage = () => {
   const { login } = useContext(AuthContext);
 
   const onLogin = () => {
-    const lastPath = JSON.parse(localStorage.getItem('lastPath')) || '/';
+    const lastPath = localStorage.getItem('lastPath') || '/';
 
     login('Jonathan Plodzien');
 

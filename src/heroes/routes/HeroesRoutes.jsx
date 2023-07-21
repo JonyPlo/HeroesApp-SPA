@@ -1,7 +1,6 @@
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { Navbar, WelcomeText } from '../../layout';
 import { DcPage, HeroPage, MarvelPage, SearchPage } from '../pages';
-import ErrorPage from '../../layout/components/ErrorPage';
 
 export const HeroesRoutes = () => {
   let { pathname } = useLocation();
