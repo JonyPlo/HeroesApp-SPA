@@ -32,7 +32,7 @@ export const SearchPage = () => {
         <div className='col-5'>
           <h4>Searching</h4>
           <hr />
-          <form onSubmit={onSearchSubmit}>
+          <form data-testid='form' onSubmit={onSearchSubmit}>
             <input
               type='text'
               placeholder='Search a hero'
@@ -60,6 +60,7 @@ export const SearchPage = () => {
           )} */}
           {/* OPCION 2 - LA MEJOR OPCION */}
           <div
+            data-testid='alert-search-hero'
             className={`alert alert-primary animate__animated animate__fadeIn ${
               showSearch ? '' : 'd-none'
             }`}
@@ -67,6 +68,7 @@ export const SearchPage = () => {
             Search a hero
           </div>
           <div
+            data-testid='alert-danger'
             className={`alert alert-danger animate__animated animate__fadeIn ${
               showError ? '' : 'd-none'
             }`}
