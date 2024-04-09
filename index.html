@@ -12,12 +12,24 @@
       crossorigin="anonymous"
     />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      ;(function () {
+        window.counterscale = {
+          q: [['set', 'siteId', 'heroes-app-jony'], ['trackPageview']],
+        }
+      })()
+    </script>
+    <script
+      id="counterscale-script"
+      src="https://counterscale.joonyyplo.workers.dev.workers.dev/tracker.js"
+      defer
+    ></script>
   </body>
 </html>

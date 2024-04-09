@@ -7,7 +7,7 @@ const mockedUseNavigate = jest.fn();
 
 // Lo que estoy haciendo en este mock es realizar un mock de todo lo que venga de la libreria react-router-dom, asi que todo lo que extraigamos en la desestructuracion del import sera sobrescrito por funciones mock
 jest.mock('react-router-dom', () => ({
-  // Con ...jest.requireActual('react-router-dom') estoy diciendo que tome todo lo que exporta la libreria react- router-dom, lo esparza con el operador spread, pero solo vamos a sobrescribir el useNavigate, en otras palabras, todo lo que se exporta de react-router-dom se mantendra normal y lo unico que sera reemplazado o sobrescrito por una funcion mock sera el useNavigate
+  // Con ...jest.requireActual('react-router-dom') estoy diciendo que tome todo lo que exporta la libreria react- router-dom, lo esparza con el operador spread, pero solo vamos a sobrescribir el useNavigate. En otras palabras, la línea ...jest.requireActual('react-router-dom'), asegura que todas las exportaciones del módulo 'react-router-dom' sean las reales, excepto useNavigate, que se sustituye por la función simulada mockedUseNavigate. Esto es útil cuando deseas mantener la funcionalidad real de la mayoría de las partes del módulo y solo mockear o sustituir una parte específica para las pruebas, en este caso, useNavigate.
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => mockedUseNavigate,
 }));
